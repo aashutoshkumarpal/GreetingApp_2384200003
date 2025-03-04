@@ -1,1 +1,27 @@
-*.vs
+# Visual Studio files
+.vs/
+*.suo
+*.user
+
+# Build outputs
+bin/
+obj/
+
+# Logs & temporary files
+*.log
+logs/
+
+# Dependencies
+node_modules/
+packages/
+
+# Database & EF Migrations
+Migrations/
+*.mdf
+*.ldf
+
+# Publish output
+publish/
+*.pubxml
+
+*.snl

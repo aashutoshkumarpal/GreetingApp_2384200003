@@ -1,4 +1,5 @@
 ﻿using ModelLayer.Model;
+using RepositoryLayer.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,7 @@ namespace RepositoryLayer.Interface
     public interface IGreetingRL
     {
         string GetGreetingMessage(UsernameRequestModel request);
+
+        Greeting AddGreeting(Greeting greeting);
     }
 }
