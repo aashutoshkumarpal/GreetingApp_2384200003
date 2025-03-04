@@ -171,7 +171,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\91870\\source\\repos\\HelloGreetingApplication\\ModelLayer\\ModelLayer.csproj": {
+                "projectPath": "C:\\Users\\91870\\source\\repos\\HelloGreetingApplication\\ModelLayer\\ModelLayer.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

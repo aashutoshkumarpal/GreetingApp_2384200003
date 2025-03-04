@@ -11,6 +11,7 @@
           "BusinessLayer": "1.0.0",
           "NLog": "5.4.0",
           "NLog.Web.AspNetCore": "5.4.0",
+          "RepositoryLayer": "1.0.0",
           "Swashbuckle.AspNetCore": "7.3.1"
         },
         "runtime": {
@@ -156,6 +157,9 @@
         }
       },
       "RepositoryLayer/1.0.0": {
+        "dependencies": {
+          "ModelLayer": "1.0.0"
+        },
         "runtime": {
           "RepositoryLayer.dll": {
             "assemblyVersion": "1.0.0",

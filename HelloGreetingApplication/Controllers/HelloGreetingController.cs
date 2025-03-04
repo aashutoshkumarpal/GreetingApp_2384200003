@@ -18,8 +18,32 @@ namespace HelloGreetingApplication.Controllers
 
         private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
+        public HelloGreetingController(IGreetingBL greetingBL)
+        {
+            _greetingBL = greetingBL;
+        }
+        /// <summary>
+        /// Get Greet Message by Name 
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost("greetByName")]
+        public IActionResult GetGreeting( UsernameRequestModel request)
+        {
+            var message = _greetingBL.GetGreetingMessage(request);
+            ResponseModel<String> responseModel = new ResponseModel<string>();
+            responseModel.Success = true;
+            responseModel.Message = "Greet message With Name";
+            responseModel.Data = message;
+            _logger.Info("Post Method Executed With Name");
+            return Ok(responseModel);
+           
+        }
 
-
+        /// <summary>
+        /// Get Greet message from service Layer
+        /// </summary>
+        /// <returns></returns>
 
         [HttpGet("Greet")]
         public IActionResult GetGreet()
@@ -30,7 +54,6 @@ namespace HelloGreetingApplication.Controllers
             responseModel.Message = "Greet message ";
             responseModel.Data = data;
             _logger.Info("Get Method Executed");
-
             return Ok(responseModel);
 
         }

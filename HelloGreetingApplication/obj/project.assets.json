@@ -328,6 +328,9 @@
       "RepositoryLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ModelLayer": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/RepositoryLayer.dll": {}
         },
@@ -1005,6 +1008,7 @@
       "BusinessLayer >= 1.0.0",
       "NLog >= 5.4.0",
       "NLog.Web.AspNetCore >= 5.4.0",
+      "RepositoryLayer >= 1.0.0",
       "Swashbuckle.AspNetCore >= 7.3.1"
     ]
   },
@@ -1043,6 +1047,9 @@
           "projectReferences": {
             "C:\\Users\\91870\\source\\repos\\HelloGreetingApplication\\BusinessLayer\\BusinessLayer.csproj": {
               "projectPath": "C:\\Users\\91870\\source\\repos\\HelloGreetingApplication\\BusinessLayer\\BusinessLayer.csproj"
+            },
+            "C:\\Users\\91870\\source\\repos\\HelloGreetingApplication\\RepositoryLayer\\RepositoryLayer.csproj": {
+              "projectPath": "C:\\Users\\91870\\source\\repos\\HelloGreetingApplication\\RepositoryLayer\\RepositoryLayer.csproj"
             }
           }
         }
