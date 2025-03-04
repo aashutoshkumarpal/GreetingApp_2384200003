@@ -69,8 +69,18 @@
   },
   {
     "ContainingType": "HelloGreetingApplication.Controllers.HelloGreetingController",
+    "Method": "GetGreet",
+    "RelativePath": "HelloGreeting/Greet",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HelloGreetingApplication.Controllers.HelloGreetingController",
     "Method": "GetGreeting",
-    "RelativePath": "HelloGreeting/greet",
+    "RelativePath": "HelloGreeting/greetByName",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -81,16 +91,6 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "HelloGreetingApplication.Controllers.HelloGreetingController",
-    "Method": "GetGreet",
-    "RelativePath": "HelloGreeting/Greet",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   }
 ]

@@ -1,9 +1,14 @@
 using BusinessLayer.Interface;
 using BusinessLayer.Service;
+using NLog;
+using NLog.Web;
 using RepositoryLayer.Interface;
 using RepositoryLayer.Service;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var logger = LogManager.Setup().LoadConfigurationFromFile("nlog.config").GetCurrentClassLogger();
+logger.Info("Application is starting...");
 
 // Add services to the container.
 
@@ -16,6 +21,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+/*builder.Logging.ClearProviders();
+builder.Host.UseNLog();*/
 
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
