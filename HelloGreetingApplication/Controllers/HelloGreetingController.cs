@@ -6,7 +6,7 @@ using NLog;
 
 namespace HelloGreetingApplication.Controllers
 {
-
+    
     /// <summary>
     /// Class Providing API for HelloGreeting
     /// </summary>
@@ -14,15 +14,26 @@ namespace HelloGreetingApplication.Controllers
     [Route("[controller]")]
     public class HelloGreetingController : ControllerBase
     {
-        
+        private IGreetingBL _greetingBL;
+
         private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
-        private readonly IGreetingBL _greetingBL;
 
-        public HelloGreetingController(IGreetingBL greetingBL) // Use the interface
+
+
+
+        [HttpGet("Greet")]
+        public IActionResult GetGreet()
         {
-            _greetingBL = greetingBL;
-        }
+            String data = _greetingBL.GetGreet();
+            ResponseModel<String> responseModel = new ResponseModel<string>();
+            responseModel.Success = true;
+            responseModel.Message = "Greet message ";
+            responseModel.Data = data;
+            _logger.Info("Get Method Executed");
 
+            return Ok(responseModel);
+
+        }
         /// <summary>
         /// Get method to get the Greeting Message
         /// </summary>
@@ -109,10 +120,6 @@ namespace HelloGreetingApplication.Controllers
             return Ok(responseModel);
         }
 
-        [HttpGet("greet")]
-        public string get()
-        {
-           return _greetingBL.getGreetMessage();
-        }
+        
     }
 }
