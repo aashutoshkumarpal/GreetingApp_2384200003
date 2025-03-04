@@ -20,6 +20,12 @@ namespace BusinessLayer.Service
             _greetingRL = greetingRL;
         }
 
+
+        public List<Greeting> GetAllGreetings() 
+        {
+            return _greetingRL.GetAllGreetings();
+        }
+
         public Greeting AddGreeting(Greeting greeting)
         {
             return _greetingRL.AddGreeting(greeting);

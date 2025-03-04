@@ -15,6 +15,10 @@ namespace RepositoryLayer.Service
 
         private readonly GreetingDbContext _context;
 
+        public List<Greeting> GetAllGreetings() 
+        {
+            return _context.Greetings.ToList();
+        }
         public GreetingRL(GreetingDbContext context)
         {
             _context = context;
