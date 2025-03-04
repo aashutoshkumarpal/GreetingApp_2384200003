@@ -27,6 +27,11 @@ namespace RepositoryLayer.Service
             return greeting;
         }
 
+        public Greeting GetGreetingById(int id)
+        {
+            return _context.Greetings.Find(id);
+        }
+
         public string GetGreetingMessage(UsernameRequestModel request)
         {
             if (!string.IsNullOrWhiteSpace(request.FirstName) && !string.IsNullOrWhiteSpace(request.LastName))

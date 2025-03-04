@@ -30,6 +30,11 @@ namespace BusinessLayer.Service
             return _greetingRL.GetGreetingMessage(request);
         }
 
+        public Greeting GetGreetingById(int id)
+        {
+            return _greetingRL.GetGreetingById(id);
+        }
+
         public string GetGreet()
         {
             return "Hello World";
