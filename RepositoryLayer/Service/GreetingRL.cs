@@ -24,6 +24,17 @@ namespace RepositoryLayer.Service
             _context = context;
         }
 
+        public Greeting UpdateGreeting(Greeting greeting) // New Method
+        {
+            var existingGreeting = _context.Greetings.Find(greeting.Id);
+            if (existingGreeting != null)
+            {
+                existingGreeting.Message = greeting.Message;
+                _context.SaveChanges();
+            }
+            return existingGreeting;
+        }
+
         public Greeting AddGreeting(Greeting greeting)
         {
             _context.Greetings.Add(greeting);

@@ -209,6 +209,46 @@
             "description": "OK"
           }
         }
+      },
+      "put": {
+        "tags": [
+          "HelloGreeting"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
       }
     },
     "/HelloGreeting/all": {
