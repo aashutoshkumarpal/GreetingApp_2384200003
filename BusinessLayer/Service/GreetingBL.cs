@@ -20,6 +20,10 @@ namespace BusinessLayer.Service
             _greetingRL = greetingRL;
         }
 
+        public bool DeleteGreeting(int id) // New delete method
+        {
+            return _greetingRL.DeleteGreeting(id);
+        }
         public Greeting UpdateGreeting(Greeting greeting) // New Method
         {
             return _greetingRL.UpdateGreeting(greeting);
