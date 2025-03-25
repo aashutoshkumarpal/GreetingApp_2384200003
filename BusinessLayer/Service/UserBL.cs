@@ -14,12 +14,13 @@ namespace BusinessLayer.Service
     {
         private readonly IUserRL _userRL;
         private readonly ILogger<UserBL> _logger;
-        
-        public UserBL(IUserRL userRL, ILogger<UserBL> logger )
+        private readonly ITokenService _tokenService;
+
+        public UserBL(IUserRL userRL, ILogger<UserBL> logger, ITokenService tokenService)
         {
             _userRL = userRL;
             _logger = logger;
-            
+            _tokenService = tokenService;
         }
 
         public string LogIn(LoginDTO loginDTO)
@@ -34,8 +35,8 @@ namespace BusinessLayer.Service
 
                 if (PasswordHashing.VerifyPassword(loginDTO.Password, result.Password)) 
                 {
-
-                    return "Login Successfull";
+                    var token = _tokenService.GenerateToken(result);
+                    return token;
                 }
                 else
                 {
@@ -86,8 +87,10 @@ namespace BusinessLayer.Service
                 }
 
                 var result = _userRL.ForgetPassword(forgetPasswordDTO);
-                return "Password Chnaged";
-             
+
+                var token = _tokenService.GenerateToken(result);
+
+                return token;
             }catch(KeyNotFoundException ex)
             {
                 _logger.LogError("Email not found." + ex);
@@ -103,9 +106,9 @@ namespace BusinessLayer.Service
         {
             try
             {
-                
+                var email = _tokenService.ValidateToken(token);
                 var newPassword = PasswordHashing.Hashing(Password);
-                
+                var result = _userRL.ResetPassword(email, newPassword);
 
                 return true;
             }

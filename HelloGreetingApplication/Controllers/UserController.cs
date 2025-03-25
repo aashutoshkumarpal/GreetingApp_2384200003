@@ -16,13 +16,13 @@ namespace HelloGreetingApplication.Controllers
         
         private readonly IUserBL _userBL;
         private readonly ILogger<UserController> _logger;
-        
+        private readonly IEmailService _emailService;
 
-        public UserController(ILogger<UserController> logger, IUserBL userBL)
+        public UserController(ILogger<UserController> logger, IUserBL userBL, IEmailService emailService)
         {
             _logger = logger;
             _userBL = userBL;
-            
+            _emailService = emailService;
         }
 
 
@@ -126,7 +126,7 @@ namespace HelloGreetingApplication.Controllers
                 responseModel.Message = "Check your Email.";
                 responseModel.Data = "";
 
-                
+                _emailService.SendEmail(forgetPasswordDTO.Email, "Token for Forget Password", result);
                 return Ok(responseModel);
             }
             catch(KeyNotFoundException ex)
